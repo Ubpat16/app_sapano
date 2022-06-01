@@ -72,34 +72,26 @@
             <!-- Tab content -->
             <div id="gainers" class="contents">
                 <table class="table table-striped table-dark">
+                    {% for coin in coins %}
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Coin</th>
+                        <th scope="col">Last Price</th>
+                        <th scope="col">Volume</th>
+                        <th scope="col">Cap</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td>{{ coin['code'] }}</td>
+                        <td>{{ coin['rate'] }}</td>
+                        <td>{{ coin['volume'] }}</td>
+                        <td>{{ coin['cap'] }}</td>
                     </tr>
                     </tbody>
+                    {% endfor %}
                 </table>
             </div>
 

@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from .crypto_coins import response
 
 
 # Create your views here.
-class HomepageView(TemplateView):
+class HomepageView(ListView):
     template_name = 'index.html'
 
 

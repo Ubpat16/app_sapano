@@ -16,8 +16,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Kanit:wght@200&family=Montserrat:ital,wght@1,300&family=Poppins:wght@800&display=swap"
           rel="stylesheet">
+    <!--- FontAwesome ---->
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 </head>
-{% include 'nav.html' %}
+<nav class="nav-strip sticky-top">
+    <div class="navbar navbar-expand-lg bg-dark shadow">
+        <a class="navbar-brand" href="#" style="color: white;">
+            <img class="header-images" src="{% static 'images/user.svg' %}" alt="">
+            {{ auth_user }}
+        </a>
+
+        <button type="button" class="sapa-price-btn btn btn-dark">
+            <img class="ticker-image" src="{% static 'images/ticker.svg' %}">
+            <span class="ticker-text">$0.55</span>
+        </button>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'stake' %}">Stake</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'p2p' %}">P2P</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'epos' %}">EPOS</a></li>
+            </ul>
+            <button class="wallet-connect btn btn-primary">
+                <a class="nav-link" href="#">
+                    Connect Wallet
+                </a>
+            </button>
+        </div>
+    </div>
+</nav>
 
 {% block contents %}
 {% endblock contents %}
