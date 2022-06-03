@@ -21,3 +21,4 @@ function tabs(evt, tab_name) {
 }
 
 document.getElementById("defaultOpen").click();
+document.getElementById('percent_change').classList.add('positive')

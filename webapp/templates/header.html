@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home |{{ Company }}</title>
+    <title>Home | {{ company }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
@@ -19,33 +18,39 @@
     <!--- FontAwesome ---->
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 </head>
-<nav class="nav-strip sticky-top">
-    <div class="navbar navbar-expand-lg bg-dark shadow">
-        <a class="navbar-brand" href="#" style="color: white;">
-            <img class="header-images" src="{% static 'images/user.svg' %}" alt="">
-            {{ auth_user }}
-        </a>
 
-        <button type="button" class="sapa-price-btn btn btn-dark">
-            <img class="ticker-image" src="{% static 'images/ticker.svg' %}">
-            <span class="ticker-text">$0.55</span>
-        </button>
+<body>
+    <nav class="nav-strip sticky-top">
+        <div class="navbar navbar-expand-lg bg-dark shadow">
+            <a class="navbar-brand" href="#" style="color: white;">
+                <img class="header-images" src="{% static 'images/user.svg' %}" alt="">
+                {{ auth_user }}
+            </a>
 
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'stake' %}">Stake</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'p2p' %}">P2P</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'epos' %}">EPOS</a></li>
-            </ul>
-            <button class="wallet-connect btn btn-primary">
-                <a class="nav-link" href="#">
-                    Connect Wallet
-                </a>
+            <button type="button" class="sapa-price-btn btn btn-dark">
+                <img class="ticker-image" src="{% static 'images/ticker.svg' %}">
+                <span class="ticker-text">$ {{ sapa }}</span>
             </button>
-        </div>
-    </div>
-</nav>
 
-{% block contents %}
-{% endblock contents %}
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'stake' %}">Stake</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'p2p' %}">P2P</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'epos' %}">EPOS</a></li>
+                </ul>
+                <button class="wallet-connect btn btn-primary">
+                    <a class="nav-link" href="#">
+                        Connect Wallet
+                    </a>
+                </button>
+            </div>
+        </div>
+    </nav>
+<div>
+    {% block contents %}
+    {% endblock contents %}
+</div>
+
+</body>
+</html>
