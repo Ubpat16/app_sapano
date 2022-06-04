@@ -5,15 +5,16 @@ from .coindata import COINData
 URL = 'https://tokpie.com/api_ticker/?market=sapa@usdt'
 sapa = requests.get(URL).json()
 sapa_price = {key: value for key, value in sapa['result'].items() if key == 'highestBid'}
-
+DATA = None
 RANKING = COINData(sort='market_cap_desc', limit=10, currency='usd')
-CONTEXT = {'ranking': RANKING.data(), 'company': 'Sapano Finance', 'sapa': sapa_price['highestBid']}
+CONTEXT = {'ranking': DATA, 'company': 'Sapano Finance', 'sapa': sapa_price['highestBid']}
 
 
 # Create your views here.
 class HomepageView(TemplateView):
     template_name = 'index.html'
     extra_context = CONTEXT
+    DATA = RANKING.data()
 
     def get_context_data(self, **kwargs):
         kwargs.setdefault('view', self)

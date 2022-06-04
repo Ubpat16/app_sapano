@@ -133,8 +133,29 @@ hr {
 }
 
 /* css for bottom nav */
+
 .bottom-nav-container {
-  text-align: center;
+	text-align: center;
+	align-items: center;
+  box-shadow: 0px -7px 51px 12px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px -7px 51px 12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -7px 51px 12px rgba(0,0,0,0.75);
+  z-index: 1;
+} 
+
+.bottom-nav-images {
+		height: 30px;
+		width: 30px;
+}
+
+.nav-active {
+		border: 3px solid;
+		background-color: #354259;
+		border-radius: 10px;
+}
+
+.bottom-nav-text {
+		color: #fff;
 }
 
 /* css for table */
