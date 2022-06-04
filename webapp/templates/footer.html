@@ -1,6 +1,43 @@
 {% load static %}
 <!--footer-->
 
+<div class="container-fluid" style="background-color: white;">
+    <div class="row bottom-nav-container">
+        <div class="col-3">
+            <div class="bottom-nav">
+                <div class="bottom-nav-icon">
+                    <img src="{% static 'images/marketplace.png' %}" height="50" width="50">
+                </div>
+                <b class="bottom-nav-text">Home</b>
+            </div>
+        </div>
+        <div class="col-3">
+            <div>
+                <div>
+                    <img src="{% static 'images/stake.png' %}" height="50" width="50">
+                </div>
+                <b class="bottom-nav-text">Stake</b>
+            </div>
+        </div>
+        <div class="col-3">
+            <div>
+                <div>
+                    <img src="{% static 'images/p2p.png' %}" height="50" width="50">
+                </div>
+                <b class="bottom-nav-text">P2P</b>
+            </div>
+        </div>
+        <div class="col-3">
+            <div>
+                <div>
+                    <img src="{% static 'images/EPOS-device.svg' %}" height="50" width="50">
+                </div>
+                <b class="bottom-nav-text">EPOS</b>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer>
     <!-- Remove the container if you want to extend the Footer to full width. -->
     <div class="container my-5">
@@ -164,4 +201,3 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="{% static 'js/script.js' %}" crossorigin="anonymous"></script>
-

@@ -6,13 +6,6 @@ body {
     background-image: radial-gradient(#354259, #112B3C);
 }
 
-.positive {
-    color: green;
-}
-
-.negative {
-    color: red;
-}
 
 .header-images {
   width: 40px;
@@ -138,8 +131,10 @@ hr {
     color: #fff;
 
 }
-.volume {
-		visibility: hidden;
+
+/* css for bottom nav */
+.bottom-nav-container {
+  text-align: center;
 }
 
 /* css for table */
