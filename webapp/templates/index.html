@@ -72,7 +72,6 @@
                         <th scope="col">Coin</th>
                         <th scope="col">Last Price</th>
                         <th scope="col">24hr %chg</th>
-                        <th scope="col">Volume</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -87,7 +86,6 @@
                         <td style="color:green;">
                         {% endif %}
                         <b>{{ coin.price_change_percentage_24h|floatformat:2 }} %</b></td>
-                        <td>{{ coin.total_volume|floatformat:"-3g" }}</td>
                     </tr>
                     </tbody>
                     {% endfor %}

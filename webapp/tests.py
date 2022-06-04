@@ -1,9 +1,9 @@
 from django.test import TestCase
-
-
+from .views import URL, COINData
+import requests
 # Create your tests here.
 
-class CheckTemplates(TestCase):
+class Check(TestCase):
 
     def test_home(self):
         response = self.client.get('/')
@@ -20,3 +20,15 @@ class CheckTemplates(TestCase):
     def test_p2p(self):
         response = self.client.get('/p2p/')
         return self.assertEqual(response.status_code, 200)
+    
+    def test_sapa_price(self):
+      response = requests.get(URL)
+      return self.assertEqual(response.status_code, 200)
+      
+    def test_ranking(self):
+        is_ok = False
+        response = COINData.test_status()
+        for status in response:
+            if status == 200:
+                is_ok = True
+        return self.assertEqual(is_ok, True)

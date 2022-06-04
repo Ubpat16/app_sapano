@@ -138,9 +138,8 @@ hr {
     color: #fff;
 
 }
-
-#footer {
-
+.volume {
+		visibility: hidden;
 }
 
 /* css for table */
@@ -157,7 +156,7 @@ hr {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 250px) {
     .sapa-price-btn {
         visibility: hidden;
     }
@@ -165,7 +164,6 @@ hr {
     .navbar {
       height: 60px;
     }
-
 }
 
 @media (min-width: 1366px) {

@@ -8,6 +8,9 @@ class COINData:
                    f'per_page={limit}&page=1&sparkline=false'
 
     def data(self):
-        data = requests.get(self.url).json()
-        return data
-
+        data = requests.get(self.url)
+        return data.json()
+        
+    def test_status(self):
+        self.response = requests.get(self.url)
+        return self.response.status_code

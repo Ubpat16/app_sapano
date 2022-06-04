@@ -2,8 +2,8 @@ import requests
 from django.views.generic import TemplateView
 from .coindata import COINData
 
-url = 'https://tokpie.com/api_ticker/?market=sapa@usdt'
-sapa = requests.get(url).json()
+URL = 'https://tokpie.com/api_ticker/?market=sapa@usdt'
+sapa = requests.get(URL).json()
 sapa_price = {key: value for key, value in sapa['result'].items() if key == 'highestBid'}
 
 RANKING = COINData(sort='market_cap_desc', limit=10, currency='usd')
