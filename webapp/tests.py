@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .views import URL, RANKING
+from .views import RANKING_DATA
 import requests
 
 
@@ -24,9 +24,9 @@ class Check(TestCase):
         return self.assertEqual(response.status_code, 200)
 
     def test_sapa_price(self):
-        response = requests.get(URL)
+        response = requests.get(RANKING_DATA.tokpie_url)
         return self.assertEqual(response.status_code, 200)
 
     def test_ranking(self):
-        response = RANKING.response
+        response = requests.get(RANKING_DATA.cgk_url)
         return self.assertEqual(response.status_code, 200)

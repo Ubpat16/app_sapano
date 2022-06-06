@@ -1,20 +1,25 @@
 import requests
 from django.views.generic import TemplateView
-from .coindata import COINData
 
-URL = 'https://tokpie.com/api_ticker/?market=sapa@usdt'
-sapa = requests.get(URL).json()
-sapa_price = {key: value for key, value in sapa['result'].items() if key == 'highestBid'}
-DATA = None
-RANKING = COINData(sort='market_cap_desc', limit=10, currency='usd')
-CONTEXT = {'ranking': DATA, 'company': 'Sapano Finance', 'sapa': sapa_price['highestBid']}
+
+class COINData:
+
+    def __init__(self, sort, limit, currency):
+        self.cgk_url = f'https://api.coingecko.com/api/v3/coins/markets?vs_currency={currency}&order={sort}&' \
+                       f'per_page={limit}&page=1&sparkline=false'
+        self.tokpie_url = 'https://tokpie.com/api_ticker/?market=sapa@usdt'
+        self.ranks = requests.get(self.cgk_url).json()
+        self.sapa_price = requests.get(self.tokpie_url).json()
+
+
+RANKING_DATA = COINData(sort='market_cap_desc', limit=10, currency='usd')
+SAPA_PRICE = {key: value for key, value in RANKING_DATA.sapa_price['result'].items() if key == 'highestBid'}
 
 
 # Create your views here.
 class HomepageView(TemplateView):
     template_name = 'index.html'
-    extra_context = CONTEXT
-    DATA = RANKING.data()
+    extra_context = {'ranking': RANKING_DATA.ranks, 'company': 'Sapano Finance', 'sapa': SAPA_PRICE['highestBid']}
 
     def get_context_data(self, **kwargs):
         kwargs.setdefault('view', self)
@@ -25,14 +30,14 @@ class HomepageView(TemplateView):
 
 class StakeView(TemplateView):
     template_name = 'stake.html'
-    extra_context = CONTEXT
+    extra_context = {'company': 'Sapano Finance', 'sapa': SAPA_PRICE['highestBid']}
 
 
 class P2PView(TemplateView):
     template_name = 'p2p.html'
-    extra_context = CONTEXT
+    extra_context = {'company': 'Sapano Finance', 'sapa': SAPA_PRICE['highestBid']}
 
 
 class EPOSView(TemplateView):
     template_name = 'epos.html'
-    extra_context = CONTEXT
+    extra_context = {'company': 'Sapano Finance', 'sapa': SAPA_PRICE['highestBid']}

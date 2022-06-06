@@ -4,7 +4,7 @@
 <div class="fixed-bottom bottom-nav-container bg-dark container-fluid" style="background-color: white;">
     <div class="row ">
         <div class="col-3">
-            <div class="bottom-nav nav-active" onclick="tabs(event, 'gainers')" id="defaultOpen">
+            <div class="bottom-nav" onclick="tabs(event, 'home')" id="home">
                 <a href="{% url 'home' %}">
                 <div class="bottom-nav-icon">
                     <img class="bottom-nav-images" src="{% static 'images/marketplace.png' %}">
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="bottom-nav nav-active" onclick="tabs(event, 'gainers')">
+            <div class="bottom-nav" onclick="tabs(event, 'stake')" id="stake">
                 <a href="{% url 'stake' %}">
                 <div class="bottom-nav-icon">
                     <img class="bottom-nav-images" src="{% static 'images/stake.png' %}">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="bottom-nav nav-active" onclick="tabs(event, 'gainers')">
+            <div class="bottom-nav" onclick="tabs(event, 'p2p')" id="p2p">
                 <a href="{% url 'p2p' %}">
                 <div class="bottom-nav-icon">
                     <img class="bottom-nav-images" src="{% static 'images/p2p.png' %}">
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="bottom-nav nav-active" onclick="tabs(event, 'gainers')">
+            <div class="bottom-nav" onclick="tabs(event, 'epos')" id="epos">
                 <a href="{% url 'epos' %}">
                 <div class="bottom-nav-icon">
                     <img class="bottom-nav-images" src="{% static 'images/EPOS-device.svg' %}">

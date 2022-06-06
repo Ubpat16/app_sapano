@@ -6,6 +6,117 @@ body {
     background-image: radial-gradient(#354259, #112B3C);
 }
 
+.top_body {
+    padding-top: 50px;
+}
+
+.equity_balance_container {
+  background-color: #EC994B;
+  color: black;
+  padding: 15px 25px;
+  height: 100px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 19px -3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 4px 19px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 19px -3px rgba(0,0,0,0.75);
+  margin-bottom: 25px;
+}
+
+.top_ {
+  background-color: #383838;
+}
+
+#buy,
+#buy_p2p {
+  background-color: green;
+}
+
+#sell,
+#sell_p2p {
+  background-color: red;
+}
+
+#buy:active,
+#sell:active {
+  border: solid #fff;
+}
+
+.p2p_buttons {
+  margin: 2px;
+}
+
+.buy_sell {
+  padding: 5px 7% 5px 7%;
+  box-shadow: 2px 4px 12px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 2px 4px 12px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 4px 12px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+
+
+.p2p_categories {
+  color: #fff;
+  margin-top: 7px;
+  display: contents;
+  text-align: center;
+  float: right;
+}
+
+.equity_title {
+  margin-top: auto;
+}
+
+.btc_equity_value {
+  float: right;
+}
+
+.btc_equity_text {
+  float: right;
+  font-size: 15px;
+}
+
+.category_strip {
+  background-color: #383838;
+  border-style: double;
+  padding: 7px;
+}
+
+.p2p-nav-container {
+  float: right;
+}
+
+.p2p-dropdown {
+  display: flex;
+  float: right;
+  color: #fff;
+  margin-top: 4px;
+}
+
+.payment_method {
+  float: right;
+  color: #fff;
+  margin-top: 4px;
+}
+
+
+.filter_strip {
+  background-color: #383838;
+  margin-top: 10px;
+  padding: 5px 7% 5px 7%;
+}
+
+.filter_amount {
+  margin-left: 15px;
+}
+
+.p2p_filter {
+  display: initial;
+}
+
+.payment_method {
+  float: right;
+}
+
 
 .header-images {
   width: 40px;
@@ -13,7 +124,7 @@ body {
   margin: 10px 10px;
 }
 
-.navbar {
+.navbar_strip {
     padding: 0 7% 0 7%;
     box-shadow: -1px 39px 37px 10px rgba(0,0,0,0.75);
 }
@@ -141,7 +252,7 @@ hr {
   -webkit-box-shadow: 0px -7px 51px 12px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px -7px 51px 12px rgba(0,0,0,0.75);
   z-index: 1;
-} 
+}
 
 .bottom-nav-images {
 		height: 30px;
@@ -194,4 +305,11 @@ hr {
     .crypto-meta {
         margin: 0 15% 0 15%;
     }
+}
+
+@media (min-width: 992px) {
+  .p2p-dropdown {
+    visibility: hidden;
+    position: absolute;
+  }
 }
