@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'sapanoweb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sapanoFI',
-        'USER': 'sapanoADMIN',
-        'PASSWORD': 'sapaNO2021@.',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -127,3 +123,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT =  5432
+
