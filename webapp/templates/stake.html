@@ -1,4 +1,10 @@
-{% include 'header.html' %}
+{% extends 'header.html' %}
+
+{% block title %}
+    Grow your idle assets | {{ company }}
+{% endblock %}
+
 {% block contents %}
-{% endblock contents %}
+
 {% include 'footer.html' %}
+{% endblock contents %}

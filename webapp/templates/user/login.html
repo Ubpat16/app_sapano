@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+
+{% block title %}
+    Login | {{ company }}
+{% endblock %}
+
+
+{% block contents %}
+
+<!--Login-->
+<div class="outter-container">
+    <div class="holding-container">
+        <div class='auth-container'>
+            <div class="registration">
+                <h1 class="text-center">Login</h1>
+                {% if form.errors %}
+                    {{ form.errors}}
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.username }}
+                        {{ form.password }}
+                    </div>
+                    <button class="btn buttons btn-primary" style="margin-left: 10px;" type="submit">Login</button>
+                </form>
+                <p class="text-center">Haven't gotten an account yet? <a href="{% url 'register' %}">Register</a> </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}
+{% endblock contents %}

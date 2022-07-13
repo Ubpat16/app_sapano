@@ -10,6 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -19,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Kanit:wght@200&family=Montserrat:ital,wght@1,300&family=Poppins:wght@800&display=swap"
           rel="stylesheet">
-    <!--- FontAwesome ---->
+    <!--- FontAwesome -->
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/0c98489dc6.js" crossorigin="anonymous"></script>
 </head>
@@ -29,7 +33,11 @@
     <div class="navbar navbar_strip navbar-expand-lg bg-dark shadow">
         <a class="navbar-brand" href="#" style="color: white;">
             <img class="header-images" src="{% static 'images/user.svg' %}" alt="">
-            {{ auth_user }}
+            {% if user.is_authenticated %}
+                {{ username }}
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
         </a>
 
         <button type="button" class="sapa-price-btn btn btn-dark">

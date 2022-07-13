@@ -269,7 +269,46 @@ hr {
 		color: #fff;
 }
 
-/* css for table */
+.outter-container {
+  color: #fff;
+  /* text-align: center; */
+  margin: 7% 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.holding-container {
+  width: 350px;
+  outline: solid 1px black;
+}
+
+.auth-container {
+  padding: 20px 15px;
+}
+
+
+.form-control {
+  width: 300px;
+  justify-items: center;
+  margin: auto;
+  margin-top: 13px;
+}
+
+.buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color:rgb(47, 65, 186); 
+  align-items: center;
+}
+
+.form-control.label {
+  float: left;
+}
+
+/* .registration {
+  width: 300px;
+} */
 
 @media (max-width: 1366px) {
     .sapa-price {

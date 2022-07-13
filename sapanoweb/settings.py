@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webapp',
-    'fontawesomefree'
+    'fontawesomefree',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'sapanoweb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sapaDB',
+        'USER': 'postgres',
+        'PASSWORD': 'Myworld1992@.',
+        'HOST': '127.0.0.1',
+        'PORT': ''
     }
 }
 
