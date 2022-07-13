@@ -75,12 +75,10 @@ class SapanoUserCreateUser(UserCreationForm):
         return self.password2
 
     def save(self, commit=True):
-        user = User.objects.create_user(
-            self.cleaned_data['username'],
-            self.cleaned_data['email'],
-            self.cleaned_data['password1']
-        )
-        login(user=user)
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password1'])
+        if commit:
+            user.save()
         return user
 
 class SapanoUserLogin(AuthenticationForm):

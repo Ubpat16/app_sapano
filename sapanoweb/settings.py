@@ -81,9 +81,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sapaDB',
         'USER': 'postgres',
-        'PASSWORD': 'Myworld1992@.',
+        'PASSWORD': 'Myworld1992',
         'HOST': '127.0.0.1',
-        'PORT': ''
+        'PORT': '5432'
     }
 }
 
@@ -128,6 +128,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# EMAIL_HOST = 'localhost'
-# EMAIL_PORT =  5432
-
+LOGIN_URL = 'user_login'

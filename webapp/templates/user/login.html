@@ -16,6 +16,9 @@
                 {% if form.errors %}
                     {{ form.errors}}
                 {% endif %}
+                {% for message in messages %}
+                <p class='text-center'>{{ message }}</p>
+                {% endfor %}
                 <form method="post">
                     {% csrf_token %}
                     <div class="form-group">
@@ -24,7 +27,7 @@
                     </div>
                     <button class="btn buttons btn-primary" style="margin-left: 10px;" type="submit">Login</button>
                 </form>
-                <p class="text-center">Haven't gotten an account yet? <a href="{% url 'register' %}">Register</a> </p>
+                <p class="text-center">Haven't gotten an account yet? <a href="{% url 'user_register' %}">Register</a> </p>
             </div>
         </div>
     </div>

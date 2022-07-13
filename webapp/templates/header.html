@@ -31,14 +31,17 @@
 <body>
 <nav class="nav-strip sticky-top">
     <div class="navbar navbar_strip navbar-expand-lg bg-dark shadow">
-        <a class="navbar-brand" href="#" style="color: white;">
-            <img class="header-images" src="{% static 'images/user.svg' %}" alt="">
+        <div class="navbar-brand dropdown show" href="#" style="color: white;">
+            <button class="btn dropdown-toggle" type='button' id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="header-images" src="{% static 'images/user.svg' %}" alt=""></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% if user.is_authenticated %}
+                    <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
+                {% endif %}
+                </div>
             {% if user.is_authenticated %}
-                {{ username }}
-            {% else %}
-                <a href="{% url 'login' %}">Login</a>
+                {{ request.user }}
             {% endif %}
-        </a>
+        </div>
 
         <button type="button" class="sapa-price-btn btn btn-dark">
             <img class="ticker-image" src="{% static 'images/ticker.svg' %}">
