@@ -6,6 +6,7 @@ Django==4.0.6
 django-bootstrap-v5==1.0.11
 djangorestframework==3.13.1
 fontawesomefree==6.1.1
+gunicorn==20.1.0
 idna==3.3
 psycopg2==2.9.3
 pycoingecko==2.2.0
@@ -15,3 +16,4 @@ soupsieve==2.3.2.post1
 sqlparse==0.4.2
 tzdata==2022.1
 urllib3==1.26.10
+whitenoise==6.2.0
