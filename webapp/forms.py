@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages
 from django.http import request
+# from .wallet_generator import wallet_address
 
 
 # Create forms

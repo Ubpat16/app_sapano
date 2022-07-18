@@ -4,11 +4,15 @@ from django.contrib.auth.decorators import login_required
 from .forms import SapanoUserCreateUser, SapanoUserLogin
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from .models import Wallet
 
 @login_required(login_url='user_login')
 def homepage(request):
     home = 'index.html'
-    context = {'company': 'Sapano Finance'}
+    context = {
+        'company': 'Sapano Finance',
+        'wallet': Wallet
+        }
     return render(request, template_name=home, context=context)
 
 @login_required(login_url='user_login')
@@ -25,6 +29,13 @@ def epos(request):
 def stake(request):
     stake = 'stake.html'
     return render(request, template_name=stake)
+
+def wallet_view(request):
+    wallet = 'wallet.html'
+    context = {
+        'wallet': Wallet
+    }
+    return render(request, template_name=wallet, context=context)
 
 def registeruser(request):
     form = SapanoUserCreateUser()

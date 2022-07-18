@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import homepage, stake, epos, p2p, registeruser, loginuser, logoutuser
+from .views import homepage, stake, epos, p2p, registeruser, loginuser, logoutuser, wallet_view
 
 
 urlpatterns = [
@@ -9,5 +9,6 @@ urlpatterns = [
     path('p2p/', p2p, name='p2p'),
     path('register/', registeruser, name='user_register'),
     path('login/', loginuser, name='user_login'),
-    path('logout/', logoutuser, name='user_logout')
+    path('logout/', logoutuser, name='user_logout'),
+    path('wallet/', wallet_view, name='wallet')
 ]
