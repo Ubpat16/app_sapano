@@ -6,22 +6,25 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import Wallet
 
+
 @login_required(login_url='user_login')
 def homepage(request):
     home = 'index.html'
     context = {
         'company': 'Sapano Finance',
         'wallet': Wallet
-        }
+    }
     return render(request, template_name=home, context=context)
+
 
 @login_required(login_url='user_login')
 def p2p(request):
     context = {
         'company': 'Sapano Finance'
-        }
+    }
     p2p = 'p2p.html'
     return render(request, template_name=p2p, context=context)
+
 
 @login_required(login_url='user_login')
 def epos(request):
@@ -31,10 +34,12 @@ def epos(request):
     }
     return render(request, template_name=epos, context=context)
 
+
 @login_required(login_url='user_login')
 def stake(request):
     stake = 'stake.html'
     return render(request, template_name=stake)
+
 
 def wallet_view(request):
     wallet = 'wallet.html'
@@ -44,13 +49,14 @@ def wallet_view(request):
     }
     return render(request, template_name=wallet, context=context)
 
+
 def registeruser(request):
     form = SapanoUserCreateUser()
     register_template = 'user/register.html'
     context = {
-        'form': form, 
+        'form': form,
         'company': 'Sapano Finance'
-        }
+    }
 
     if request.method == "POST":
         form = SapanoUserCreateUser(request.POST)
@@ -63,13 +69,14 @@ def registeruser(request):
 
     return render(request, template_name=register_template, context=context)
 
+
 def loginuser(request):
     login_template = 'user/login.html'
     form = SapanoUserLogin()
     context = {
-        'form': form, 
+        'form': form,
         'company': 'Sapano Finance'
-        }
+    }
 
     if request.method == "POST":
         username = request.POST.get('username')

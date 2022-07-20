@@ -105,6 +105,7 @@ body {
 
 .filter_amount {
   margin-left: 15px;
+  width: 120px;
 }
 
 .p2p_filter {
