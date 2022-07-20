@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*i8-^40%23yakfoe=t!_lu-u@v@d*w*^7e$8bz*nusf(qf2d=k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'sapanoweb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sapaDB',
-        'USER': 'postgres',
-        'PASSWORD': 'Myworld1992',
-        'HOST': '127.0.0.1',
+        'NAME': 'd9m58abt38lusi',
+        'USER': 'ikrfetbzkejrdd',
+        'PASSWORD': 'deda72f68a6b60e3fa261c7504db00a7b101f77ba8f61c8cbd34277118074b69',
+        'HOST': 'ec2-34-235-31-124.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
