@@ -19,12 +19,30 @@ SUPPORTED_TOKENS = (
     ("MATIC", "polygon-matic"),
     ("SAPA", "sapano"),
 )
+
+P2P_CATEGORY = (
+    ('CM', 'Crypto Merchange'),
+    ('FV', 'Food Vendor'),
+    ('DP', 'Delivery Personnel'),
+    ('HS', 'Hair Stylist'),
+    ('MS', 'Mechanical Service'),
+    ('MU', 'Music'),
+    ('SM', 'Social Media Influencers'),
+)
+PAYMENT_METHOD = (
+    ('TR', 'Bank Transfere'),
+    ('CD', 'Card Payment'),
+)
 # Create your models here.
+
+
 class SapaNOUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+
 class Wallet(models.Model):
-    user = models.ForeignKey(SapaNOUser, on_delete=models.CASCADE, default=None)
+    user = models.ForeignKey(
+        SapaNOUser, on_delete=models.CASCADE, default=None)
     BTC = models.FloatField(default=0.0)
     ETH = models.FloatField(default=0.0)
     DOGE = models.FloatField(default=0.0)
@@ -43,16 +61,20 @@ class Wallet(models.Model):
     def wallet_balance(self):
         balance = self.BTC + self.ETH + self.DOGE + \
             self.XRP + self.LTC + self.SHIB + \
-                self.ADA + self.MATIC + self.SAPA
+            self.ADA + self.MATIC + self.SAPA
         if balance == 0.0:
             return 0
         else:
             return balance
 
+
 class P2POrder(models.Model):
-    user = models.ForeignKey(SapaNOUser, on_delete=models.CASCADE, default=None)
+    user = models.ForeignKey(
+        SapaNOUser, on_delete=models.CASCADE, default=None)
     order_type = models.CharField(max_length=1, choices=ORDER_TYPES)
     token = models.CharField(max_length=6, choices=SUPPORTED_TOKENS)
+    category = models.CharField(max_length=2, choices=P2P_CATEGORY)
+    payment = models.CharField(max_length=2, choices=PAYMENT_METHOD)
     available_tokens = models.IntegerField()
     rate = models.FloatField()
     amount = models.IntegerField()
@@ -60,10 +82,12 @@ class P2POrder(models.Model):
     def __str__(self) -> str:
         return self.user.username
 
+
 class Order(models.Model):
-    user = models.ForeignKey(SapaNOUser, on_delete=models.CASCADE, default=None)
+    order = models.ForeignKey(
+        P2POrder, on_delete=models.CASCADE, default=None)
     rate = models.FloatField()
-    order_type = models.CharField(max_length=1, choices=ORDER_TYPES) 
+    order_type = models.CharField(max_length=1, choices=ORDER_TYPES)
 
     def __str__(self) -> str:
         return self.agent
