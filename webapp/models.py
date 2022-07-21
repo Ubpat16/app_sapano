@@ -7,18 +7,18 @@ ORDER_TYPES = (
     ("S", "SELL")
 )
 
-SUPPORTED_TOKENS = (
-    ("BTC", "bitcoin"),
-    ("ETH", "etheruem"),
-    ("XRP", "ripple"),
-    ("DOGE", "dogecoin"),
-    ("LTC", "litecoin"),
-    ("SHIB", "shiba-inu"),
-    ("BNB", "binance-coin"),
-    ("ADA", "cardano"),
-    ("MATIC", "polygon-matic"),
-    ("SAPA", "sapano"),
-)
+# SUPPORTED_TOKENS = (
+#     ("BTC", "bitcoin"),
+#     ("ETH", "etheruem"),
+#     ("XRP", "ripple"),
+#     ("DOGE", "dogecoin"),
+#     ("LTC", "litecoin"),
+#     ("SHIB", "shiba-inu"),
+#     ("BNB", "binance-coin"),
+#     ("ADA", "cardano"),
+#     ("MATIC", "polygon-matic"),
+#     ("SAPA", "sapano"),
+# )
 
 P2P_CATEGORY = (
     ('CM', 'Crypto Merchange'),
@@ -43,36 +43,37 @@ class SapaNOUser(models.Model):
 class Wallet(models.Model):
     user = models.ForeignKey(
         SapaNOUser, on_delete=models.CASCADE, default=None)
-    BTC = models.FloatField(default=0.0)
-    ETH = models.FloatField(default=0.0)
-    DOGE = models.FloatField(default=0.0)
-    XRP = models.FloatField(default=0.0)
-    LTC = models.FloatField(default=0.0)
-    SHIB = models.FloatField(default=0.0)
-    BNB = models.FloatField(default=0.0)
-    ADA = models.FloatField(default=0.0)
-    MATIC = models.FloatField(default=0.0)
-    SAPA = models.FloatField(default=0.0)
+    tokens = models.CharField(max_length=15, default=None)
+    quantity = models.FloatField(default=0.0)
+    # BTC = models.FloatField(default=0.0)
+    # ETH = models.FloatField(default=0.0)
+    # DOGE = models.FloatField(default=0.0)
+    # XRP = models.FloatField(default=0.0)
+    # LTC = models.FloatField(default=0.0)
+    # SHIB = models.FloatField(default=0.0)
+    # BNB = models.FloatField(default=0.0)
+    # ADA = models.FloatField(default=0.0)
+    # MATIC = models.FloatField(default=0.0)
+    # SAPA = models.FloatField(default=0.0)
 
-    def __str__(self) -> str:
-        return self.wallet_address
+    # def __str__(self) -> str:
+    #     return self.wallet_address
 
-    @property
-    def wallet_balance(self):
-        balance = self.BTC + self.ETH + self.DOGE + \
-            self.XRP + self.LTC + self.SHIB + \
-            self.ADA + self.MATIC + self.SAPA
-        if balance == 0.0:
-            return 0
-        else:
-            return balance
-
+    # @property
+    # def wallet_balance(self):
+    #     balance = self.BTC + self.ETH + self.DOGE + \
+    #         self.XRP + self.LTC + self.SHIB + \
+    #         self.ADA + self.MATIC + self.SAPA
+    #     if balance == 0.0:
+    #         return 0
+    #     else:
+    #         return balance
 
 class P2POrder(models.Model):
     user = models.ForeignKey(
         SapaNOUser, on_delete=models.CASCADE, default=None)
     order_type = models.CharField(max_length=1, choices=ORDER_TYPES)
-    token = models.CharField(max_length=6, choices=SUPPORTED_TOKENS)
+    token = models.CharField(max_length=6)
     category = models.CharField(max_length=2, choices=P2P_CATEGORY)
     payment = models.CharField(max_length=2, choices=PAYMENT_METHOD)
     available_tokens = models.IntegerField()

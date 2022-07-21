@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'bootstrap5',
     'whitenoise.runserver_nostatic',
+    'django_countries'
 
 ]
 
@@ -79,13 +80,23 @@ WSGI_APPLICATION = 'sapanoweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd9m58abt38lusi',
+#         'USER': 'ikrfetbzkejrdd',
+#         'PASSWORD': 'deda72f68a6b60e3fa261c7504db00a7b101f77ba8f61c8cbd34277118074b69',
+#         'HOST': 'ec2-34-235-31-124.compute-1.amazonaws.com',
+#         'PORT': '5432'
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd9m58abt38lusi',
-        'USER': 'ikrfetbzkejrdd',
-        'PASSWORD': 'deda72f68a6b60e3fa261c7504db00a7b101f77ba8f61c8cbd34277118074b69',
-        'HOST': 'ec2-34-235-31-124.compute-1.amazonaws.com',
+        'NAME': 'sapaDB',
+        'USER': 'postgres',
+        'PASSWORD': 'Myworld1992',
+        'HOST': 'localhost',
         'PORT': '5432'
     }
 }

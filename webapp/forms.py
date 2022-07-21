@@ -4,8 +4,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages
 from django.http import request
+from django_countries import countries
 # from .wallet_generator import wallet_address
 
+COUNTRY_CHOICES =tuple(countries)
 
 # Create forms
 class SapanoUserCreateUser(UserCreationForm):
@@ -21,11 +23,12 @@ class SapanoUserCreateUser(UserCreationForm):
                                  'class': 'form-control'
                              }))
 
-    country = forms.CharField(label='Country', max_length=25,
-                              widget=forms.TextInput(attrs={
-                                  'placeholder': 'Choose your country',
-                                  'class': 'form-control'
-                              }))
+    country = forms.ChoiceField(choices=COUNTRY_CHOICES, label='Country',
+                                required=True,
+                                widget=forms.Select(attrs={
+                                    'class': 'form-control'
+                                })
+                                )
 
     phone = forms.CharField(label='Phone Number', max_length=25,
                             widget=forms.TextInput(attrs={

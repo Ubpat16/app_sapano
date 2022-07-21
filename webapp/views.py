@@ -1,53 +1,59 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from .forms import SapanoUserCreateUser, SapanoUserLogin
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .models import Wallet
+from .models import Wallet, P2POrder
+from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
 
 
-@login_required(login_url='user_login')
-def homepage(request):
-    home = 'index.html'
-    context = {
-        'company': 'Sapano Finance',
-        'wallet': Wallet
-    }
-    return render(request, template_name=home, context=context)
+@method_decorator(login_required, name='dispatch')
+class HomepageView(TemplateView):
+    template_name: str = 'index.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['wallet'] = Wallet
+        context['company'] = 'Sapano Finance'
+        return context
 
 
-@login_required(login_url='user_login')
-def p2p(request):
-    context = {
-        'company': 'Sapano Finance'
-    }
-    p2p = 'p2p.html'
-    return render(request, template_name=p2p, context=context)
-
-
-@login_required(login_url='user_login')
-def epos(request):
-    epos = 'epos.html'
+@method_decorator(login_required, name='dispatch')
+class P2PView(TemplateView):
+    template_name: str = 'p2p.html'
+    model = P2POrder
     context = {
         'company': 'Sapano Finance'
     }
-    return render(request, template_name=epos, context=context)
+    
 
-
-@login_required(login_url='user_login')
-def stake(request):
-    stake = 'stake.html'
-    return render(request, template_name=stake)
-
-
-def wallet_view(request):
-    wallet = 'wallet.html'
+@method_decorator(login_required, name='dispatch')
+class EPOSView(TemplateView):
+    template_name: str = 'epos.html'
     context = {
         'company': 'Sapano Finance',
-        'wallet': Wallet
+        'p2p_categories': P2POrder
     }
-    return render(request, template_name=wallet, context=context)
+    
+
+@method_decorator(login_required, name='dispatch')
+class StakeView(TemplateView):
+    template_name: str = 'stake.html'
+
+
+class WalletView(ListView):
+    model = Wallet
+    # context_object_name = 'wallet'
+    template_name = 'wallet.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['company'] = 'Sapano Finance'
+        # context['wallet'] = Wallet
+        return context
 
 
 def registeruser(request):
