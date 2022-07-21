@@ -23,6 +23,12 @@ sqlparse = "==0.4.2"
 tzdata = "==2022.1"
 urllib3 = "==1.26.10"
 whitenoise = "==6.2.0"
+autopep8 = "==1.6.0"
+django-countries = "==7.3.2"
+pycodestyle = "==2.8.0"
+pyuca = "==1.2"
+toml = "==0.10.2"
+typing-extensions = "==4.3.0"
 
 [dev-packages]
 
